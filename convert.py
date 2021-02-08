@@ -15,7 +15,12 @@ curr_2 = input('Now write the currency you are converting to:')
 rate = http_utility.get_conversion_rates(curr_1, curr_2) #base needs to be in request, so only need one method
 price = json.loads(rate)['rates']
 
-conversion = price[curr_2]
-amount = float(input('Please input the amount of currency you wish to convert'))
+conversion = float(price[curr_2])
+amount = float(input('Please input the amount of currency you wish to convert:'))
+
+total = amount * conversion
+
+print(f'With {amount} of {curr_1}, you will end up with {total} of {curr_2} should you choose to convert!')
+
 
 
